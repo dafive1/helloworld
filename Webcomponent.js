@@ -1,31 +1,47 @@
-(function () {
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = 
-    `<button type="button" id="myBtn">Helper Button</button>` ;   
-   
-    class PerformanceHelp extends HTMLElement {
-        constructor() {
-            super();
-            this.init();           
+(function() {
+	let template = document.createElement("template");
+	template.innerHTML = `
+		<style>
+		</style>
+	`;
+
+	class HelloWorldAps extends HTMLElement {
+		constructor() {
+			super();
+			this._shadowRoot = this.attachShadow({mode: "open"});
+			this._shadowRoot.appendChild(template.content.cloneNode(true));
+		}
+
+        //Fired when the widget is added to the html DOM of the page
+        connectedCallback(){
+            this.redraw();
         }
 
-        init() {            
-              
-            let shadowRoot = this.attachShadow({mode: "open"});
-            shadowRoot.appendChild(tmpl.content.cloneNode(true));
-            this.addEventListener("click", event => {
-            var event = new Event("onClick");
-            this.fireChanged();           
-            this.dispatchEvent(event);
-            });           
-        }
-
-        fireChanged() {
-            console.log("OnClick Triggered");     
-           
-        }        
+         //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
+        disconnectedCallback(){
         
-    }
+        }
 
-    customElements.define('custom-button', PerformanceHelp);
+         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
+		onCustomWidgetBeforeUpdate(oChangedProperties) {
+
+		}
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+		onCustomWidgetAfterUpdate(oChangedProperties) {
+
+        }
+        
+        //When the custom widget is removed from the canvas or the analytic application is closed
+        onCustomWidgetDestroy(){
+        
+        }
+
+        redraw(
+
+        );
+
+	}
+
+customElements.define("com-sap-sample-template'-aps", HelloWorldAps);
 })();
