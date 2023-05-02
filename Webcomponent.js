@@ -1,8 +1,7 @@
 (function() {
 	let template = document.createElement("template");
 	template.innerHTML = `
-		<style>
-		</style>
+		<h1>Hello World</h1>
 	`;
 
 	class HelloWorldAps extends HTMLElement {
@@ -43,5 +42,5 @@
 
 	}
 
-customElements.define("com-sap-sample-template'-aps", HelloWorldAps);
+customElements.define("com-sap-sample-helloworld1", HelloWorldAps);
 })();
