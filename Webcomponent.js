@@ -36,11 +36,9 @@
         
         }
 
-        redraw(
-
-        );
+        redraw();
 
 	}
 
-customElements.define("com.sap.sample.template.0", HelloWorldAps);
+customElements.define("com-sap-sample-helloworld1", HelloWorldAps);
 })();
